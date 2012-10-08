@@ -1,0 +1,123 @@
+/*** Status Updates */
+.ibm-conn-status-message-textarea {
+    width: 100%;
+    height: 57px;
+    display: block;
+}
+
+.ibm-conn-status-item {
+    border-top: 1px solid #e0e0e0;
+    padding: .3em 0;
+    margin-top: .3em;
+}
+
+.ibm-conn-status-list .ibm-conn-status-item:first-child {
+    border: none;
+}
+
+.ibm-conn-status-item textarea {
+    width: 76%;
+    height: 45px;
+    display: block;
+}
+
+.ibm-conn-status-add-comment {
+    display: inline-block;
+    font-size: 85%;
+    margin-top: .5em;
+}
+
+.ibm-conn-status-comment-submit,
+.ibm-conn-status-comment-cancel {
+    font-size: 85%;
+}
+
+.ibm-conn-status-comment {
+    position: relative;
+    width: 75%;
+    margin: 0 0 0 48px;
+    padding: .5em;
+    border-top: 1px solid #fff;
+    background-color: #f3f3f3;
+}
+
+.ibm-conn-status-comment-first {
+    margin-top: .3em;
+}
+
+.ibm-conn-status-item > div {
+    display: table-row;
+}
+
+.ibm-conn-status-item img.ibm-conn-photo,
+.ibm-conn-status-item .ibm-conn-info {
+    vertical-align: top;
+    display: table-cell;
+}
+
+.ibm-conn-status-item img.ibm-conn-photo {
+    border: 0;
+    width: 35px;
+    height: 35px;
+    padding-right: 1em;
+}
+
+.ibm-conn-status-item .ibm-conn-info {
+    width: 100%;
+}
+
+.ibm-conn-status-item .ibm-conn-info h3 {
+    float: left;
+    margin: 0 0 .3em 0;
+    padding: 0;
+}
+
+.ibm-conn-status-item .ibm-conn-info .ibm-conn-date {
+    float: right;
+    margin: 0;
+    padding: 0;
+    color: #1A6495;
+    font-size: .8em;
+}
+
+.ibm-conn-status-comment .ibm-conn-info .ibm-conn-date {
+    float: left;
+    margin: 0;
+    padding: 2px 10px;
+    color: #1A6495;
+    font-size: .8em;
+}
+
+.ibm-conn-status-item .ibm-conn-info .ibm-conn-message {
+    clear: both;
+}
+
+/*** People Search */
+.ibm-conn-peoplesearch-form {
+}
+
+ul.ibm-conn-peoplesearch {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ibm-conn-peoplesearch-item {
+    margin: 0 !important;
+    padding: 10px 0px 0px 0 !important;
+}
+
+.ibm-conn-peoplesearch-item span {
+    display: inline !important;
+}
+
+.ibm-conn-peoplesearch-item img {
+    width: 35px;
+    height: 35px;
+}
+
+/*
+.ibm-conn-peoplesearch-selected {
+    background-color: #F3F3F3;
+}
+*/

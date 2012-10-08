@@ -1,0 +1,1 @@
+window.connections.peoplesearch.model.SearchResultEntry = Backbone.Model.extend({});
