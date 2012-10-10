@@ -4,7 +4,7 @@
     xmlns="http://www.w3.org/1999/xhtml" version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:portal="http://www.enonic.com/cms/xslt/portal">
-
+    <xsl:param name="header-text" select="'Status Updates'"/>
     <xsl:output method="xhtml"/>
         <xsl:template match="/">
             <div id="ibm-conn-status-form" class="ibm-conn-status-form"></div>
@@ -23,6 +23,7 @@
         </xsl:template>
     <xsl:template name="handlebars-templates">
         <script type="text/template" id="ibm-conn-tpl-status-form">
+            <h2><xsl:value-of select="$header-text"/></h2>
             <div>
                 <textarea class="ibm-conn-status-message-textarea" placeholder="What are you doing now?"></textarea>
                 <p>
