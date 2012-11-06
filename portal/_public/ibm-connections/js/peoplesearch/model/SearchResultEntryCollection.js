@@ -18,6 +18,7 @@ window.connections.peoplesearch.model.SearchResultEntryCollection = Backbone.Col
             var entry = $(this),
                 id = entry.children('id').text(),
                 name = entry.children('title').text(),
+                phone = entry.find('content abbr[title=cell]').next('span.value').text(),
                 email = entry.find('content a[class=email]').text(),
                 photo = entry.children('link[type=image]').attr('href'),
                 link = entry.children('link[rel=related]').attr('href');
@@ -26,6 +27,7 @@ window.connections.peoplesearch.model.SearchResultEntryCollection = Backbone.Col
                 id: id,
                 name: name,
                 email: email,
+                phone: phone,
                 photo: photo,
                 link: link
             });

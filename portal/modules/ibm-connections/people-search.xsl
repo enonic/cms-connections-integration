@@ -34,7 +34,8 @@
                             <div style="display:table-cell; vertical-align:middle; width:100%" class="ibm-conn-profile-business-card">
                                 <span class="vcard">
                                     <a href="{{{{link}}}}" class="fn url" style="display:block">{{name}}</a>
-                                    <span class="email" style="display: none;">{{email}}</span>
+                                    <span class="email" style="display: none !important;">{{email}}</span>
+                                    <span class="phone">{{phone}}</span>
                                 </span>
                             </div>
                         </div>
