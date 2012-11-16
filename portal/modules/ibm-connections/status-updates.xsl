@@ -56,7 +56,7 @@
                                 {{published_formatted}}
                             </div>
                             <div class="ibm-conn-message">
-                                {{{title}}}
+                                {{{summary}}}
                             </div>
                             {{#if is_comment}}
                                 <!-- -->

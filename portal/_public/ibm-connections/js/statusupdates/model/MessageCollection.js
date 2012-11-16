@@ -1,6 +1,6 @@
 /**
  * StatusMessagesCollection
- */
+ */  
 window.connections.statusupdates.model.MessageCollection = Backbone.Collection.extend({
     model: window.connections.statusupdates.model.Message,
 
@@ -9,11 +9,11 @@ window.connections.statusupdates.model.MessageCollection = Backbone.Collection.e
         self.url = window.connections.properties.boardEntriesUrl;
     },
 
-    parse: function (data) {
+    parse: function(data) {
         var self = this,
-            parsed = [],
-            entry,
-            title,
+            parsed = [], 
+            entry, 
+            summary,
             published,
             isComment,
             author,
@@ -22,22 +22,22 @@ window.connections.statusupdates.model.MessageCollection = Backbone.Collection.e
             email,
             photo,
             commentCounter = 0;
-
+            
         $(data).find('entry').each(function (index) {
-            entry = $(this);
-            title = entry.children('title').text().replace(/\n/gm, '<br/>');
-            published = entry.children('published').text();
-            isComment = entry.children('id').text().indexOf('comment') > -1;
-            commentCounter = isComment ? commentCounter = commentCounter + 1 : 0;
+            entry           = $(this);
+            summary         = entry.children('summary').text().replace(/\n/gm, '<br/>');
+            published       = entry.children('published').text();
+            isComment       = entry.children('id').text().indexOf('comment') > -1;
+            commentCounter  = isComment ? commentCounter = commentCounter + 1 : 0;
 
-            author = entry.find('author');
-            userId = author[0].childNodes[1].firstChild.nodeValue; // Using standard DOM. Getting nodes with namespaces is buggy when the browser is Chrome.
-            name = $('name', author).text();
-            email = $('email', author).text();
-            photo = window.connections.properties.profilePhotoUrl + '?userid=' + userId;
-
+            author  = entry.find('author');
+            userId  = author[0].childNodes[1].firstChild.nodeValue; // Using standard DOM. Getting nodes with namespaces is buggy when the browser is Chrome.
+            name    = $('name', author).text();
+            email   = $('email', author).text();
+            photo   = window.connections.properties.profilePhotoUrl + '?userid=' + userId;
+            
             parsed.push({
-                title: title,
+                summary: self.linkifyComment(summary),
                 published: published,
                 published_formatted: self.formatDate(published),
                 author: {
@@ -54,16 +54,37 @@ window.connections.statusupdates.model.MessageCollection = Backbone.Collection.e
         return parsed;
     },
 
-    formatDate: function (dateStr) {
-        var date = $.trim(dateStr.replace(/[TZ]/g, ' '));
+    linkifyComment: function(comment) {
+        var c = comment;
+        var webUriPattern   = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/\+%_#:\(\)\.-]*(\?\S+)?)?)?)/gim;
+        var webUriResultPattern = '<a href="$1" title="$1" target="_blank">$1</a>';
+        var spotifyUriPattern   = /(spotify:\w+:\w+)/gim;
+        var spotifyUriResultPattern = '<a href="$1" title="$1" target="_blank">$1</a>';
+        
+        c = c.replace(webUriPattern, webUriResultPattern);
+        c = c.replace(spotifyUriPattern, spotifyUriResultPattern);
+        
+        return c;
+    },
+
+    formatDate: function(dateStr) {
+        /*
+        var date = $.trim(dateTimeStr.replace(/[TZ]/g,' '));
+        var now = $.format.date(new Date(), 'MMM dd \'yy');
+        var dateFormatted = $.format.date(date, 'MMM dd \'yy');
+        var today = dateFormatted == now;
+        date = (today ? 'Today' : dateFormatted) + ' at ' + $.format.date(date, 'HH:mm');
+        return date;
+        */
+        var date = $.trim(dateStr.replace(/[TZ]/g,' '));
         date = $.format.date(date, 'MMM dd \'yy') + ' at ' + $.format.date(date, 'HH:mm');
         return date;
     },
 
-    fetch: function (options) {
+    fetch: function(options) {
         options || (options = {});
         options.xhrFields = {
-            withCredentials: true
+          withCredentials: true
         };
         options.cache = false;
         options.dataType = 'xml';

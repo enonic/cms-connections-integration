@@ -5,7 +5,7 @@ window.connections.statusupdates.view.Form = Backbone.View.extend({
         this.render();
         this.textarea = this.$el.find('textarea.ibm-conn-status-message-textarea');
         this.url = properties.boardPostUrl + '?key=' + properties.profileKey;
-    },
+    },                                             
 
     render: function () {
         var source = $('#ibm-conn-tpl-status-form').html(),
@@ -40,13 +40,13 @@ window.connections.statusupdates.view.Form = Backbone.View.extend({
             success: function (data) {
                 $(window).trigger('connections:statusupdates:postsuccess');
             },
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function  (jqXHR, textStatus, errorThrown) {
                 throw new Error('Post status message error: ' + errorThrown);
             }
         });
     },
 
-    createEntryPostXmlData: function () {
+    createEntryPostXmlData: function() {
         var xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
         xmlStr += "<entry xmlns=\"http://www.w3.org/2005/Atom\">";
         xmlStr += "<category scheme=\"http://www.ibm.com/xmlns/prod/sn/type\" term=\"entry\"/>";
@@ -54,7 +54,7 @@ window.connections.statusupdates.view.Form = Backbone.View.extend({
         xmlStr += "<content type=\"text\">";
         xmlStr += this.textarea.val();
         xmlStr += "</content>";
-        xmlStr += "</entry>";
+        xmlStr += "</entry>"; 
         return xmlStr;
     }
 
