@@ -25,7 +25,7 @@ window.connections.statusupdates.model.MessageCollection = Backbone.Collection.e
             
         $(data).find('entry').each(function (index) {
             entry           = $(this);
-            summary         = entry.children('summary').text().replace(/\n/gm, '<br/>');
+            summary         = entry.children('summary').text();
             published       = entry.children('published').text();
             isComment       = entry.children('id').text().indexOf('comment') > -1;
             commentCounter  = isComment ? commentCounter = commentCounter + 1 : 0;
@@ -37,7 +37,7 @@ window.connections.statusupdates.model.MessageCollection = Backbone.Collection.e
             photo   = window.connections.properties.profilePhotoUrl + '?userid=' + userId;
             
             parsed.push({
-                summary: self.linkifyComment(summary),
+                summary: self.linkifyComment(summary).replace(/\n/gm, '<br/>'),
                 published: published,
                 published_formatted: self.formatDate(published),
                 author: {
