@@ -15,7 +15,7 @@ About CORS: http://www.w3.org/TR/cors/
 Enabling CORS
 ----------------
 
-Because the examples uses Ajax to directly access the Connections REST API  and browsers implements the same origin policy, the server needs to be configured to send the following Access-Control response headers to the client:
+Because the examples uses Ajax to directly access the Connections REST API and browsers implements the same origin policy (no plug-ins), the server needs to be configured to send the following Access-Control response headers to the client:
 
 <pre><code>
 Access-Control-Allow-Credentials: 	true
