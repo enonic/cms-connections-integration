@@ -10,12 +10,12 @@ The examples are using the following third-party JS libraries:
 + jQuery
 
 CORS is used for allowing the Connections REST API to be accessed from the portal.  
-We recommend that [CORS](http://www.w3.org/TR/cors/) is fully comprehended before deploying the portlets.
+About CORS: http://www.w3.org/TR/cors/
 
 Enabling CORS
 ----------------
 
-Because the examples uses Ajax to directly access the Connections REST API  and browsers implements same origin policy, the server needs to be configured to send the following Access-Control response headers to the client:
+Because the examples uses Ajax to directly access the Connections REST API  and browsers implements the same origin policy, the server needs to be configured to send the following Access-Control response headers to the client:
 
 <pre><code>
 Access-Control-Allow-Credentials: 	true
@@ -25,7 +25,7 @@ Access-Control-Allow-Origin: 		&lt;your-domain&gt;
 Access-Control-Max-Age: 		    &lt;delta-seconds&gt;
 </code></pre>
 
-We recommend to explicit specify permitted origins in the Allow-Origin list.
+It is recommended to explicit specify permitted origins in the Allow-Origin list.
 
 CMS portal
 ----------
