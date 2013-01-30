@@ -37,3 +37,4 @@ CMS portal
 5. If the resources was uploaded to another file structure than in the one used in the example package you have to modify the resource refererences in the portlet XSL.
 6. Create the portlets from the admin console. There are no datasources so only a name and a reference to the template XSL is necessary
 7. Place the portlets on your page template / page.
+8. (Optional) In order to have the Connections Profile business card to be displayed when mousing over a profile name the following script should be embedded: <connections-server-address>/profiles/ibm_semanticTagServlet/javascript/semanticTagService.js?inclDojo=true
