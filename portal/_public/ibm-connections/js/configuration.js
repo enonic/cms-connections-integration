@@ -8,6 +8,7 @@
 
     window.connections.properties =
     {
+		version				: 1.0,
         userEmail           : null, // This should contain the email address for the logged in portal user. Leave this as null as it will be set by the portlet XSL.
         profileDocumentUrl  : CONNECTIONS_SERVER_ADDRESS + '/profiles/atom/profile.do',
         profileSearchUrl    : CONNECTIONS_SERVER_ADDRESS + '/profiles/atom/search.do',
